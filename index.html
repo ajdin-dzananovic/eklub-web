@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="bs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>eKlub — vođenje sportskog kluba</title>
+<meta name="description" content="Članstvo, treninzi, uplate i obavještenja — cijeli sportski klub u telefonu. Za klubove koje vodi nekoliko ljudi uz svoj posao.">
+<meta name="theme-color" content="#1b63b8">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="canonical" href="https://eklub.ba/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://eklub.ba/">
+<meta property="og:title" content="eKlub — vođenje sportskog kluba">
+<meta property="og:description" content="Članstvo, treninzi, uplate i obavještenja — cijeli sportski klub u telefonu.">
+<meta property="og:image" content="https://eklub.ba/img/og.png">
+<meta property="og:locale" content="bs_BA">
+<style>
+  /* Fonts are served from this site, not from Google: no visitor IP leaves for a third party. */
+  @font-face { font-family: "Barlow SC"; font-weight: 600; font-display: swap;
+    src: url(fonts/barlow-semi-condensed-latin-600.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: "Barlow SC"; font-weight: 600; font-display: swap;
+    src: url(fonts/barlow-semi-condensed-latin-ext-600.woff2) format("woff2");
+    unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+  @font-face { font-family: "Barlow SC"; font-weight: 700; font-display: swap;
+    src: url(fonts/barlow-semi-condensed-latin-700.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: "Barlow SC"; font-weight: 700; font-display: swap;
+    src: url(fonts/barlow-semi-condensed-latin-ext-700.woff2) format("woff2");
+    unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+  @font-face { font-family: "Source Sans"; font-weight: 400; font-display: swap;
+    src: url(fonts/source-sans-3-latin-400.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: "Source Sans"; font-weight: 400; font-display: swap;
+    src: url(fonts/source-sans-3-latin-ext-400.woff2) format("woff2");
+    unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+  @font-face { font-family: "Source Sans"; font-weight: 600; font-display: swap;
+    src: url(fonts/source-sans-3-latin-600.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: "Source Sans"; font-weight: 600; font-display: swap;
+    src: url(fonts/source-sans-3-latin-ext-600.woff2) format("woff2");
+    unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+  :root {
+    --blue: #1b63b8;
+    --blue-deep: #14508f;
+    --gold: #e3b341;
+    --ink: #10233f;
+    --muted: #52627a;
+    --paper: #f6f8fb;
+    --surface: #ffffff;
+    --line: #dce3ee;
+    --display: "Barlow SC", "Arial Narrow", system-ui, sans-serif;
+    --text: "Source Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --blue-deep: #0f3e70;
+      --ink: #e8eef7;
+      --muted: #a4b1c4;
+      --paper: #0c1829;
+      --surface: #13233a;
+      --line: #24364f;
+      color-scheme: dark;
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--paper); color: var(--ink);
+         font: 400 1.125rem/1.6 var(--text); }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding-inline: clamp(16px, 5vw, 40px); }
+
+  h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: 1.05;
+               letter-spacing: -0.005em; margin: 0; text-wrap: balance; }
+  h2 { font-size: clamp(2rem, 4.2vw, 3rem); }
+  h3 { font-size: 1.6rem; font-weight: 600; }
+  p { margin: 0; max-width: 34em; }
+
+  .button { display: inline-block; font: 600 1.125rem/1 var(--text); text-decoration: none;
+            background: var(--gold); color: #10233f; padding: 18px 28px; border-radius: 10px; }
+  .button:hover { background: #f0c45a; }
+
+  /* ---- header + hero share the blue ground ---- */
+  .hero { background: var(--blue); color: #fff; overflow: hidden; }
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px;
+         padding-block: 20px; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none;
+           font: 700 1.75rem/1 var(--display); }
+  .brand img { width: 44px; height: 44px; background: #fff; border-radius: 12px; padding: 4px; }
+  .bar a.contact { font-weight: 600; text-decoration: none; border-bottom: 2px solid var(--gold); padding-bottom: 2px; }
+
+  .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; align-items: end;
+               padding-top: clamp(24px, 6vw, 72px); }
+  .hero-copy { padding-bottom: clamp(48px, 8vw, 110px); }
+  .hero h1 { font-size: clamp(2.6rem, 6.2vw, 5rem); }
+  .hero h1 .old { display: block; font-weight: 600; color: rgba(255,255,255,.62); }
+  .hero h1 s { text-decoration: none; position: relative; white-space: nowrap; }
+  .hero h1 s::after { content: ""; position: absolute; left: -0.06em; right: -0.06em; top: 54%;
+                      height: 0.09em; background: var(--gold); border-radius: 2px;
+                      transform-origin: left; animation: strike .45s cubic-bezier(.6,0,.3,1) both; }
+  .hero h1 .old:nth-child(1) s::after { animation-delay: .35s; }
+  .hero h1 .old:nth-child(2) s::after { animation-delay: .7s; }
+  .hero h1 .old:nth-child(3) s::after { animation-delay: 1.05s; }
+  .hero h1 .new { display: block; margin-top: 0.18em; }
+  @keyframes strike { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  @media (prefers-reduced-motion: reduce) { .hero h1 s::after { animation: none; } }
+
+  .hero-copy p { margin-top: 28px; font-size: 1.25rem; color: rgba(255,255,255,.9); }
+  .hero-copy .actions { margin-top: 36px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
+  .hero-copy .actions span { color: rgba(255,255,255,.8); }
+
+  .phone { background: #0a1628; padding: 10px; border-radius: 38px; width: min(100%, 320px);
+           box-shadow: 0 30px 60px -20px rgba(4, 18, 40, .55); }
+  .phone img { border-radius: 29px; width: 100%; height: auto; }
+  @media (prefers-color-scheme: dark) { .phone { box-shadow: 0 0 0 1px #2c4263, 0 30px 60px -20px rgba(0,0,0,.6); } }
+  /* The phone rises out of the band's lower edge; the band clips its bottom. */
+  .hero .phone { justify-self: center; margin-bottom: -140px; }
+
+  /* ---- features ---- */
+  .features { padding-top: clamp(32px, 5vw, 64px); }
+  .feature { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 96px);
+             align-items: center; padding-block: clamp(40px, 6vw, 72px); }
+  .feature + .feature { border-top: 1px solid var(--line); }
+  .feature:nth-child(even) .phone { order: -1; }
+  .feature .phone { justify-self: center; width: min(100%, 280px); }
+  .feature p { margin-top: 18px; color: var(--muted); }
+
+  /* ---- roles ---- */
+  .roles { background: var(--surface); border-block: 1px solid var(--line);
+           padding-block: clamp(64px, 9vw, 112px); }
+  .roles > .wrap > p { margin-top: 16px; color: var(--muted); }
+  .role-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin: 48px 0 0; }
+  .role-list div { border-top: 4px solid var(--blue); padding-top: 20px; }
+  .role-list dt { font: 600 1.6rem/1.1 var(--display); }
+  .role-list dd { margin: 10px 0 0; color: var(--muted); }
+
+  /* ---- privacy ---- */
+  .privacy { padding-block: clamp(64px, 9vw, 112px); }
+  .privacy ul { list-style: none; padding: 0; margin: 36px 0 0; display: grid; gap: 22px; max-width: 46em; }
+  .privacy li { padding-left: 32px; position: relative; }
+  .privacy li::before { content: ""; position: absolute; left: 0; top: .5em; width: 14px; height: 14px;
+                        border: 3px solid var(--gold); border-radius: 50%; }
+  .privacy li strong { font-weight: 600; }
+  .privacy .more { margin-top: 28px; }
+
+  /* ---- closing call ---- */
+  .closing { background: var(--blue-deep); color: #fff; padding-block: clamp(64px, 9vw, 104px); }
+  .closing p { margin-top: 18px; color: rgba(255,255,255,.88); }
+  .closing .actions { margin-top: 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
+  .closing .note { margin-top: 28px; font-size: 1rem; color: rgba(255,255,255,.7); }
+
+  footer { padding-block: 32px; font-size: 1rem; color: var(--muted); }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 32px; }
+  footer nav { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+
+  @media (max-width: 860px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 8px; }
+    .hero-copy { padding-bottom: 32px; }
+    .hero .phone { width: min(78%, 300px); }
+    .feature { grid-template-columns: 1fr; }
+    .feature:nth-child(even) .phone { order: 0; }
+    .feature .phone { width: min(72%, 260px); }
+    .role-list { grid-template-columns: 1fr; gap: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap bar">
+    <a class="brand" href="/"><img src="img/logo.png" alt="" width="44" height="44">eKlub</a>
+    <a class="contact" href="mailto:info@eklub.ba?subject=eKlub%20za%20na%C5%A1%20klub">Javite se</a>
+  </div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <h1>
+        <span class="old"><s>Sveska.</s></span>
+        <span class="old"><s>Excel tabela.</s></span>
+        <span class="old"><s>WhatsApp grupa.</s></span>
+        <span class="new">Cijeli klub u&nbsp;jednoj aplikaciji.</span>
+      </h1>
+      <p>Članovi, treninzi, članarine i obavještenja na jednom mjestu. Za klubove koje vodi nekoliko ljudi uz svoj posao, bez administracije i bez IT službe.</p>
+      <div class="actions">
+        <a class="button" href="mailto:info@eklub.ba?subject=eKlub%20za%20na%C5%A1%20klub&amp;body=Naziv%20kluba%3A%0D%0AGrad%3A%0D%0ASport%3A%0D%0APribli%C5%BEan%20broj%20%C4%8Dlanova%3A%0D%0ATelefon%3A%0D%0A">Pošaljite nam mail</a>
+        <span>info@eklub.ba</span>
+      </div>
+    </div>
+    <div class="phone"><img src="img/1-pocetna.webp" width="600" height="1210" alt="Početna stranica aplikacije: 12 članova, 2 kasne s uplatom, prihod 360 BAM ovog mjeseca"></div>
+  </div>
+</header>
+
+<main>
+  <section class="wrap features" aria-label="Šta eKlub radi">
+    <div class="feature">
+      <div>
+        <h2>Ko je platio, a ko kasni</h2>
+        <p>Svaki član ima svoju članarinu i ciklus naplate. Pored imena piše da li je uplata stigla, a početna stranica odmah kaže koliko članova kasni.</p>
+      </div>
+      <div class="phone"><img src="img/2-clanovi.webp" width="600" height="1210" loading="lazy" alt="Spisak članova sa oznakama Aktivna i Kasni"></div>
+    </div>
+    <div class="feature">
+      <div>
+        <h2>Raspored treninga i utakmica</h2>
+        <p>Treninzi po grupama, sa vremenom i mjestom. Članovi i roditelji vide svoj raspored u aplikaciji, pa ga više niko ne prepisuje u grupu.</p>
+      </div>
+      <div class="phone"><img src="img/3-raspored.webp" width="600" height="1210" loading="lazy" alt="Sedmični raspored treninga za grupe Pioniri, Kadeti i Juniori"></div>
+    </div>
+    <div class="feature">
+      <div>
+        <h2>Prisustvo u dva dodira</h2>
+        <p>Trener otvori trening i označi ko je došao. Iz toga se sama vodi statistika dolazaka za svakog člana.</p>
+      </div>
+      <div class="phone"><img src="img/4-prisustvo.webp" width="600" height="1210" loading="lazy" alt="Evidencija prisustva na treningu: 4 prisutna, 0 odsutnih"></div>
+    </div>
+    <div class="feature">
+      <div>
+        <h2>Prihod po mjesecu i po grupi</h2>
+        <p>Uplata se evidentira sa načinom plaćanja. Pregled pokazuje koliko je klub prihodovao i koliko je članova u svakoj grupi uplatilo.</p>
+      </div>
+      <div class="phone"><img src="img/5-uplate.webp" width="600" height="1210" loading="lazy" alt="Pregled uplata: ukupni prihod, gotovina, kartica i prihod po grupi"></div>
+    </div>
+  </section>
+
+  <section class="roles">
+    <div class="wrap">
+      <h2>Svako vidi ono što mu treba</h2>
+      <p>Obavještenje stiže na telefon i kad aplikacija nije otvorena, cijelom klubu ili samo jednoj grupi.</p>
+      <dl class="role-list">
+        <div>
+          <dt>Administrator</dt>
+          <dd>Vidi cijeli klub: članove, grupe, trenere, uplate i prisustvo. Odobrava nove prijave prije nego uđu u evidenciju.</dd>
+        </div>
+        <div>
+          <dt>Trener</dt>
+          <dd>Vidi samo svoje grupe. Vodi prisustvo i šalje obavještenja svojim članovima.</dd>
+        </div>
+        <div>
+          <dt>Roditelj i član</dt>
+          <dd>Roditelj ima svoj nalog i vidi podatke svoje djece: treninge, prisustvo i uplate. Ništa o drugim članovima kluba.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="wrap privacy">
+    <h2>Podaci o vašim članovima ostaju vaši</h2>
+    <ul>
+      <li><strong>Serveri u Evropskoj uniji.</strong> Baza i rezervne kopije se čuvaju u EU.</li>
+      <li><strong>Svaki klub je odvojen.</strong> Nijedan klub ne vidi podatke drugog kluba.</li>
+      <li><strong>Brisanje na zahtjev.</strong> Nalog i svi podaci o njemu brišu se iz same aplikacije ili preko <a href="https://api.eklub.ba/delete-account">ove stranice</a>.</li>
+    </ul>
+    <p class="more"><a href="https://api.eklub.ba/privacy">Pročitajte politiku privatnosti</a></p>
+  </section>
+
+  <section class="closing">
+    <div class="wrap">
+      <h2>Vodite klub?</h2>
+      <p>Pišite nam ko ste i koliko članova imate. Javićemo se i dogovoriti kako da vaš klub počne.</p>
+      <div class="actions">
+        <a class="button" href="mailto:info@eklub.ba?subject=eKlub%20za%20na%C5%A1%20klub&amp;body=Naziv%20kluba%3A%0D%0AGrad%3A%0D%0ASport%3A%0D%0APribli%C5%BEan%20broj%20%C4%8Dlanova%3A%0D%0ATelefon%3A%0D%0A">Pošaljite nam mail</a>
+        <span>info@eklub.ba</span>
+      </div>
+      <p class="note">Aplikacija uskoro stiže na Google Play i App Store.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 eKlub</span>
+    <nav aria-label="Pravne informacije">
+      <a href="https://api.eklub.ba/privacy">Politika privatnosti</a>
+      <a href="https://api.eklub.ba/delete-account">Brisanje naloga</a>
+      <a href="mailto:info@eklub.ba">info@eklub.ba</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
