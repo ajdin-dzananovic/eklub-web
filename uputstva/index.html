@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="bs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>eKlub — uputstva za korištenje</title>
+<meta name="description" content="Korak po korak uputstva za roditelje i članove, trenere i administratore eKluba, sa snimcima ekrana iz aplikacije.">
+<meta name="theme-color" content="#1b63b8">
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="canonical" href="https://eklub.ba/uputstva/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://eklub.ba/uputstva/">
+<meta property="og:title" content="eKlub — uputstva za korištenje">
+<meta property="og:description" content="Korak po korak uputstva za roditelje i članove, trenere i administratore eKluba.">
+<meta property="og:image" content="https://eklub.ba/img/og.png">
+<meta property="og:locale" content="bs_BA">
+<style>
+  /* Fonts are served from this site, not from Google: no visitor IP leaves for a third party. */
+  @font-face { font-family: "Barlow SC"; font-weight: 600; font-display: swap;
+    src: url(../fonts/barlow-semi-condensed-latin-600.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: "Barlow SC"; font-weight: 600; font-display: swap;
+    src: url(../fonts/barlow-semi-condensed-latin-ext-600.woff2) format("woff2");
+    unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+  @font-face { font-family: "Barlow SC"; font-weight: 700; font-display: swap;
+    src: url(../fonts/barlow-semi-condensed-latin-700.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: "Barlow SC"; font-weight: 700; font-display: swap;
+    src: url(../fonts/barlow-semi-condensed-latin-ext-700.woff2) format("woff2");
+    unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+  @font-face { font-family: "Source Sans"; font-weight: 400; font-display: swap;
+    src: url(../fonts/source-sans-3-latin-400.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: "Source Sans"; font-weight: 400; font-display: swap;
+    src: url(../fonts/source-sans-3-latin-ext-400.woff2) format("woff2");
+    unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+  @font-face { font-family: "Source Sans"; font-weight: 600; font-display: swap;
+    src: url(../fonts/source-sans-3-latin-600.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: "Source Sans"; font-weight: 600; font-display: swap;
+    src: url(../fonts/source-sans-3-latin-ext-600.woff2) format("woff2");
+    unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+  :root {
+    --blue: #1b63b8;
+    --blue-deep: #14508f;
+    --gold: #e3b341;
+    --ink: #10233f;
+    --muted: #52627a;
+    --paper: #f6f8fb;
+    --surface: #ffffff;
+    --line: #dce3ee;
+    --display: "Barlow SC", "Arial Narrow", system-ui, sans-serif;
+    --text: "Source Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --blue-deep: #0f3e70;
+      --ink: #e8eef7;
+      --muted: #a4b1c4;
+      --paper: #0c1829;
+      --surface: #13233a;
+      --line: #24364f;
+      color-scheme: dark;
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body { margin: 0; background: var(--paper); color: var(--ink);
+         font: 400 1.125rem/1.6 var(--text); }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding-inline: clamp(16px, 5vw, 40px); }
+
+  h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: 1.05;
+               letter-spacing: -0.005em; margin: 0; text-wrap: balance; }
+  h2 { font-size: clamp(1.9rem, 3.6vw, 2.6rem); }
+  h3 { font-size: 1.3rem; font-weight: 600; }
+  p { margin: 0; max-width: 42em; }
+
+  /* ---- header ---- */
+  .hero { background: var(--blue); color: #fff; }
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px;
+         padding-block: 20px; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none;
+           font: 700 1.75rem/1 var(--display); }
+  .brand img { width: 44px; height: 44px; background: #fff; border-radius: 12px; padding: 4px; }
+  .bar a.back { font-weight: 600; text-decoration: none; border-bottom: 2px solid var(--gold); padding-bottom: 2px; }
+  .hero .title { padding-block: clamp(28px, 6vw, 56px); }
+  .hero h1 { font-size: clamp(2.1rem, 5vw, 3.2rem); }
+  .hero p { margin-top: 16px; font-size: 1.15rem; color: rgba(255,255,255,.88); max-width: 46em; }
+
+  /* ---- quick nav ---- */
+  .jump { background: var(--surface); border-bottom: 1px solid var(--line);
+          position: sticky; top: 0; z-index: 5; }
+  .jump .wrap { display: flex; flex-wrap: wrap; gap: 10px; padding-block: 14px; }
+  .jump a { display: inline-flex; align-items: center; gap: 8px; font: 600 1rem/1 var(--text);
+            text-decoration: none; padding: 10px 18px; border-radius: 999px;
+            background: var(--paper); border: 1px solid var(--line); color: var(--ink); }
+  .jump a:hover { border-color: var(--blue); color: var(--blue); }
+  .jump a .n { display: inline-flex; align-items: center; justify-content: center;
+               width: 20px; height: 20px; border-radius: 50%; background: var(--blue); color: #fff;
+               font: 700 .75rem/1 var(--display); flex: none; }
+
+  /* ---- role sections ---- */
+  .role { padding-block: clamp(48px, 7vw, 88px); }
+  .role + .role { border-top: 1px solid var(--line); }
+  .role .head { max-width: 46em; }
+  .role .head .kicker { display: inline-block; font: 600 .95rem/1 var(--text); color: var(--blue);
+                         text-transform: uppercase; letter-spacing: .06em; margin-bottom: 10px; }
+  .role .head p { margin-top: 14px; color: var(--muted); font-size: 1.1rem; }
+
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+           gap: clamp(20px, 3vw, 32px); margin-top: clamp(32px, 5vw, 48px); }
+  .step { background: var(--surface); border: 1px solid var(--line); border-radius: 18px;
+          overflow: hidden; display: flex; flex-direction: column;
+          box-shadow: 0 1px 2px rgba(16,35,63,.04); }
+  .step .shot { background: var(--paper); border-bottom: 1px solid var(--line); }
+  .step .shot img { width: 100%; height: auto; }
+  .step .cap { padding: 18px 20px 22px; display: flex; gap: 12px; align-items: flex-start; }
+  .step .num { flex: none; display: inline-flex; align-items: center; justify-content: center;
+               width: 30px; height: 30px; border-radius: 50%; background: var(--blue); color: #fff;
+               font: 700 1rem/1 var(--display); margin-top: 1px; }
+  .step .cap p { font-weight: 600; color: var(--ink); }
+  .step .cap p.note { font-weight: 400; color: var(--muted); font-size: .95rem; margin-top: 6px; }
+
+  /* ---- closing ---- */
+  .closing { background: var(--blue-deep); color: #fff; padding-block: clamp(56px, 8vw, 96px); }
+  .closing p { margin-top: 16px; color: rgba(255,255,255,.88); }
+  .closing .actions { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; }
+  .button { display: inline-block; font: 600 1.125rem/1 var(--text); text-decoration: none;
+            background: var(--gold); color: #10233f; padding: 16px 26px; border-radius: 10px; }
+  .button:hover { background: #f0c45a; }
+
+  footer { padding-block: 32px; font-size: 1rem; color: var(--muted); }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 32px; }
+  footer nav { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+
+  @media (max-width: 560px) {
+    .steps { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 400px) {
+    .steps { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap bar">
+    <a class="brand" href="/"><img src="../img/logo.png" alt="" width="44" height="44">eKlub</a>
+    <a class="back" href="/">&larr; Početna</a>
+  </div>
+  <div class="wrap title">
+    <h1>Uputstva za korištenje</h1>
+    <p>Kratki, vizualni koraci za svaku ulogu u aplikaciji — bez čitanja priručnika. Odaberite svoju ulogu ispod.</p>
+  </div>
+</header>
+
+<nav class="jump" aria-label="Skoči na ulogu">
+  <div class="wrap">
+    <a href="#roditelj"><span class="n">1</span>Roditelj i član</a>
+    <a href="#trener"><span class="n">2</span>Trener</a>
+    <a href="#administrator"><span class="n">3</span>Administrator</a>
+  </div>
+</nav>
+
+<main>
+
+  <section class="role wrap" id="roditelj">
+    <div class="head">
+      <span class="kicker">Za roditelje i članove</span>
+      <h2>Registracija i praćenje djeteta (ili sebe)</h2>
+      <p>Prijava u klub ide preko koda koji dobijete od kluba. Nakon što admin odobri prijavu, imate uvid u raspored, prisustvo i uplate.</p>
+    </div>
+    <div class="steps">
+      <article class="step">
+        <div class="shot"><img src="../img/uputstva/roditelj-01-obrazac-prazan.webp" loading="lazy" alt="Obrazac za registraciju: kod kluba i vaši podaci"></div>
+        <div class="cap"><span class="num">1</span><div><p>Otvorite "Registruj se" i unesite kod kluba koji ste dobili.</p></div></div>
+      </article>
+      <article class="step">
+        <div class="shot"><img src="../img/uputstva/roditelj-02-obrazac-popunjen.webp" loading="lazy" alt="Popunjen obrazac sa podacima djeteta"></div>
+        <div class="cap"><span class="num">2</span><div><p>Odaberite "Nekog drugog" za dijete, ili "Sebe" ako se prijavljujete kao punoljetan član, i pošaljite prijavu.</p></div></div>
+      </article>
+      <article class="step">
+        <div class="shot"><img src="../img/uputstva/roditelj-03-na-cekanju.webp" loading="lazy" alt="Poruka da prijava čeka odobrenje kluba"></div>
+        <div class="cap"><span class="num">3</span><div><p>Prijava čeka odobrenje kluba. Obavještenje stiže čim je admin pregleda.</p></div></div>
+      </article>
+      <article class="step">
+        <div class="shot"><img src="../img/uputstva/roditelj-04-pocetna.webp" loading="lazy" alt="Početna stranica sa statusom članarine i istorijom uplata"></div>
+        <div class="cap"><span class="num">4</span><div><p>Nakon odobrenja: status članarine, istorija uplata, i prebacivanje između djece ako ih ima više.</p></div></div>
+      </article>
+      <article class="step">
+        <div class="shot"><img src="../img/uputstva/roditelj-05-raspored.webp" loading="lazy" alt="Raspored sa dugmadima Dolazim i Ne dolazim"></div>
+        <div class="cap"><span class="num">5</span><div><p>U rasporedu potvrdite ili otkažite dolazak na trening ili utakmicu.</p></div></div>
+      </article>
+      <article class="step">
+        <div class="shot"><img src="../img/uputstva/roditelj-06-statistika.webp" loading="lazy" alt="Statistika prisustva sa procentom i brojem treninga"></div>
+        <div class="cap"><span class="num">6</span><div><p>Statistika prisustva pokazuje koliko je treninga odrađeno.</p></div></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="role wrap" id="trener">
+    <div class="head">
+      <span class="kicker">Za trenere</span>
+      <h2>Prisustvo i obavještenja za svoju grupu</h2>
+      <p>Trener vidi samo svoje grupe — članove, raspored i prisustvo. Sve se vodi iz telefona, na samom treningu.</p>
+    </div>
+    <div class="steps">
+      <article class="step">
+        <div class="shot"><img src="../img/uputstva/trener-01-pocetna.webp" loading="lazy" alt="Početna stranica trenera sa brojem članova i prihodom grupe"></div>
+        <div class="cap"><span class="num">1</span><div><p>Početna pokazuje vaše grupe: ko kasni s uplatom, ko čeka odobrenje.</p></div></div>
+      </article>
+      <article class="step">
+        <div class="shot"><img src="../img/uputstva/trener-02-prisustvo-prazno.webp" loading="lazy" alt="Spisak članova na treningu, svi bez odgovora"></div>
+        <div class="cap"><span class="num">2</span><div><p>Otvorite trening iz rasporeda da vidite spisak za evidenciju.</p></div></div>
+      </article>
+      <article class="step">
+        <div class="shot"><img src="../img/uputstva/trener-03-prisustvo-popunjeno.webp" loading="lazy" alt="Dio članova označeno kao prisutno"></div>
+        <div class="cap"><span class="num">3</span><div><p>Dodirnite člana i označite prisutan, odsutan ili bez odgovora.</p></div></div>
+      </article>
+      <article class="step">
+        <div class="shot"><img src="../img/uputstva/trener-04-grupa-clanovi.webp" loading="lazy" alt="Spisak članova grupe sa statusom članarine"></div>
+        <div class="cap"><span class="num">4</span><div><p>Pregled grupe pokazuje status članarine svakog člana.</p></div></div>
+      </article>
+      <article class="step">
+        <div class="shot"><img src="../img/uputstva/trener-05-obavjestenje.webp" loading="lazy" alt="Obrazac za slanje obavještenja grupi"></div>
+        <div class="cap"><span class="num">5</span><div><p>Pošaljite obavještenje cijeloj grupi — npr. da je trening pomjeren.</p></div></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="role wrap" id="administrator">
+    <div class="head">
+      <span class="kicker">Za administratore</span>
+      <h2>Cijeli klub na jednom mjestu</h2>
+      <p>Admin vidi sve članove, grupe, uplate i raspored, i odobrava nove prijave prije nego uđu u evidenciju.</p>
+    </div>
+    <div class="steps">
+      <article class="step">
+        <div class="shot"><img src="../img/uputstva/admin-01-pocetna.webp" loading="lazy" alt="Početna stranica admina sa pregledom kluba i prihodom"></div>
+        <div class="cap"><span class="num">1</span><div><p>Početna pokazuje cijeli klub: broj članova, zakašnjele uplate, prihod.</p></div></div>
+      </article>
+      <article class="step">
+        <div class="shot"><img src="../img/uputstva/admin-02-zahtjevi.webp" loading="lazy" alt="Zahtjev za registraciju sa podacima roditelja i djeteta"></div>
+        <div class="cap"><span class="num">2</span><div><p>Nove prijave čekaju ovdje, sa podacima roditelja i djeteta.</p></div></div>
+      </article>
+      <article class="step">
+        <div class="shot"><img src="../img/uputstva/admin-03-odobri-dijalog.webp" loading="lazy" alt="Dijalog za odobravanje sa izborom grupe i plana članarine"></div>
+        <div class="cap"><span class="num">3</span><div><p>Pri odobravanju odmah dodajete u grupu i postavljate plan članarine — ili to ostavite za kasnije.</p></div></div>
+      </article>
+      <article class="step">
+        <div class="shot"><img src="../img/uputstva/admin-04-odobreno.webp" loading="lazy" alt="Potvrda da je član primljen u klub"></div>
+        <div class="cap"><span class="num">4</span><div><p>Član je u klubu — roditelj odmah dobija obavještenje.</p></div></div>
+      </article>
+      <article class="step">
+        <div class="shot"><img src="../img/uputstva/admin-05-clanovi.webp" loading="lazy" alt="Spisak svih članova kluba sa statusom uplate"></div>
+        <div class="cap"><span class="num">5</span><div><p>Spisak svih članova, sa statusom uplate obojenim po boji.</p></div></div>
+      </article>
+      <article class="step">
+        <div class="shot"><img src="../img/uputstva/admin-06-uplata-dijalog.webp" loading="lazy" alt="Obrazac za brzu uplatu sa iznosom i metodom plaćanja"></div>
+        <div class="cap"><span class="num">6</span><div><p>Evidentirajte uplatu u par dodira — iznos se sam predloži iz plana.</p></div></div>
+      </article>
+      <article class="step">
+        <div class="shot"><img src="../img/uputstva/admin-07-uplata-potvrdjena.webp" loading="lazy" alt="Potvrda uplate i ažuriran prihod kluba"></div>
+        <div class="cap"><span class="num">7</span><div><p>Prihod i status člana se ažuriraju odmah.</p></div></div>
+      </article>
+      <article class="step">
+        <div class="shot"><img src="../img/uputstva/admin-08-nova-aktivnost.webp" loading="lazy" alt="Obrazac za novu aktivnost: grupa, naslov, tip, datum i vrijeme"></div>
+        <div class="cap"><span class="num">8</span><div><p>Zakažite trening ili utakmicu — svi u grupi vide isti raspored.</p></div></div>
+      </article>
+    </div>
+  </section>
+
+</main>
+
+<section class="closing">
+  <div class="wrap">
+    <h2>Treba vam pomoć oko nečega drugog?</h2>
+    <p>Pišite nam i javićemo se.</p>
+    <div class="actions">
+      <a class="button" href="mailto:info@eklub.ba?subject=Pomo%C4%87%20oko%20eKluba">Pošaljite nam mail</a>
+      <span>info@eklub.ba</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 eKlub</span>
+    <nav aria-label="Pravne informacije">
+      <a href="/">Početna</a>
+      <a href="https://api.eklub.ba/privacy">Politika privatnosti</a>
+      <a href="https://api.eklub.ba/delete-account">Brisanje naloga</a>
+      <a href="mailto:info@eklub.ba">info@eklub.ba</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

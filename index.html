@@ -93,7 +93,10 @@
   .brand { display: flex; align-items: center; gap: 12px; text-decoration: none;
            font: 700 1.75rem/1 var(--display); }
   .brand img { width: 44px; height: 44px; background: #fff; border-radius: 12px; padding: 4px; }
+  .bar-links { display: flex; align-items: center; gap: 24px; }
   .bar a.contact { font-weight: 600; text-decoration: none; border-bottom: 2px solid var(--gold); padding-bottom: 2px; }
+  .bar a.uputstva { font-weight: 600; text-decoration: none; color: rgba(255,255,255,.85); }
+  .bar a.uputstva:hover { color: #fff; }
 
   .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; align-items: end;
                padding-top: clamp(24px, 6vw, 72px); }
@@ -182,7 +185,10 @@
 <header class="hero">
   <div class="wrap bar">
     <a class="brand" href="/"><img src="img/logo.png" alt="" width="44" height="44">eKlub</a>
-    <a class="contact" href="mailto:info@eklub.ba?subject=eKlub%20za%20na%C5%A1%20klub">Javite se</a>
+    <div class="bar-links">
+      <a class="uputstva" href="/uputstva/">Uputstva</a>
+      <a class="contact" href="mailto:info@eklub.ba?subject=eKlub%20za%20na%C5%A1%20klub">Javite se</a>
+    </div>
   </div>
   <div class="wrap hero-grid">
     <div class="hero-copy">
@@ -291,6 +297,7 @@
   <div class="wrap">
     <span>© 2026 eKlub</span>
     <nav aria-label="Pravne informacije">
+      <a href="/uputstva/">Uputstva</a>
       <a href="https://api.eklub.ba/privacy">Politika privatnosti</a>
       <a href="https://api.eklub.ba/delete-account">Brisanje naloga</a>
       <a href="mailto:info@eklub.ba">info@eklub.ba</a>
