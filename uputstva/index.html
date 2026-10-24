@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>eKlub — uputstva za korištenje</title>
-<meta name="description" content="Korak po korak uputstva za roditelje i članove, trenere i administratore eKluba, sa snimcima ekrana iz aplikacije.">
+<title>eKlub — uputstva za roditelje</title>
+<meta name="description" content="Kako upisati dijete u klub, pratiti članarinu i javiti dolazak na trening u aplikaciji eKlub. Korak po korak, sa slikama iz aplikacije.">
 <meta name="theme-color" content="#1b63b8">
 <link rel="icon" type="image/png" href="../favicon.png">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="canonical" href="https://eklub.ba/uputstva/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://eklub.ba/uputstva/">
-<meta property="og:title" content="eKlub — uputstva za korištenje">
-<meta property="og:description" content="Korak po korak uputstva za roditelje i članove, trenere i administratore eKluba.">
+<meta property="og:title" content="eKlub — uputstva za roditelje">
+<meta property="og:description" content="Kako upisati dijete u klub, pratiti članarinu i javiti dolazak na trening u aplikaciji eKlub.">
 <meta property="og:image" content="https://eklub.ba/img/og.png">
 <meta property="og:locale" content="bs_BA">
 <style>
@@ -114,7 +114,7 @@
                          text-transform: uppercase; letter-spacing: .06em; margin-bottom: 10px; }
   .role .head p { margin-top: 14px; color: var(--muted); font-size: 1.1rem; }
 
-  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  .steps { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
            gap: clamp(20px, 3vw, 32px); margin-top: clamp(32px, 5vw, 48px); }
   .step { background: var(--surface); border: 1px solid var(--line); border-radius: 18px;
           overflow: hidden; display: flex; flex-direction: column;
@@ -140,8 +140,27 @@
   footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 32px; }
   footer nav { display: flex; flex-wrap: wrap; gap: 8px 24px; }
 
+  .stores { margin-top: 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; }
+  .stores a { display: block; line-height: 0; }
+  .stores img { height: 52px; width: auto; }
+
+  /* One message that matters more than a step: money, notifications. */
+  .callout { margin-top: clamp(28px, 4vw, 40px); max-width: 46em; background: var(--surface);
+             border: 1px solid var(--line); border-left: 6px solid var(--blue); border-radius: 14px;
+             padding: 18px 22px; }
+  .callout h3 { font-size: 1.2rem; }
+  .callout p { margin-top: 6px; color: var(--muted); }
+
+  /* The club part is a glimpse, not a manual: two screens and a way to reach us. */
+  .contact { margin-top: clamp(28px, 4vw, 40px); }
+  .club-actions { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; }
+  .button.blue { background: var(--blue); color: #fff; }
+  .button.blue:hover { background: var(--blue-deep); }
+
   @media (max-width: 560px) {
     .steps { grid-template-columns: 1fr 1fr; }
+    /* Four pills wrap to two rows here; stuck to the top they would cover a third of the screen. */
+    .jump { position: static; }
   }
   @media (max-width: 400px) {
     .steps { grid-template-columns: 1fr; }
@@ -156,156 +175,126 @@
     <a class="back" href="/">&larr; Početna</a>
   </div>
   <div class="wrap title">
-    <h1>Uputstva za korištenje</h1>
-    <p>Kratki, vizualni koraci za svaku ulogu u aplikaciji — bez čitanja priručnika. Odaberite svoju ulogu ispod.</p>
+    <h1>Uputstva za roditelje</h1>
+    <p>Kako upisati dijete u klub, pratiti članarinu i javiti dolazak na trening. Aplikacija je za roditelje i članove besplatna.</p>
+    <div class="stores">
+      <a href="https://apps.apple.com/ba/app/id6807553297"><img src="../img/app-store.svg" alt="Preuzmite eKlub na App Storeu" width="165" height="52"></a>
+      <a href="https://play.google.com/store/apps/details?id=ba.eklub.app"><img src="../img/google-play.png" alt="Nabavite eKlub na Google Playu" width="181" height="52"></a>
+    </div>
   </div>
 </header>
 
-<nav class="jump" aria-label="Skoči na ulogu">
+<nav class="jump" aria-label="Skoči na dio uputstva">
   <div class="wrap">
-    <a href="#roditelj"><span class="n">1</span>Roditelj i član</a>
-    <a href="#trener"><span class="n">2</span>Trener</a>
-    <a href="#administrator"><span class="n">3</span>Administrator</a>
+    <a href="#upis"><span class="n">1</span>Upis djeteta</a>
+    <a href="#clanarina"><span class="n">2</span>Članarina</a>
+    <a href="#raspored"><span class="n">3</span>Raspored</a>
+    <a href="#klubovi"><span class="n">4</span>Za klubove</a>
   </div>
 </nav>
 
 <main>
 
-  <section class="role wrap" id="roditelj">
+  <section class="role wrap" id="upis">
     <div class="head">
       <span class="kicker">Za roditelje i članove</span>
-      <h2>Upis djeteta i praćenje članarine</h2>
-      <p>Prijava u klub ide preko koda koji dobijete od kluba. Nakon što admin odobri prijavu, imate uvid u raspored, prisustvo i uplate.</p>
+      <h2>Upis djeteta u klub</h2>
+      <p>Za upis vam treba kod kluba. Klub zatim pregleda prijavu i prihvati je.</p>
     </div>
     <div class="steps">
       <article class="step">
-        <div class="shot"><img src="../img/uputstva/roditelj-01-obrazac-prazan.webp" loading="lazy" alt="Obrazac za registraciju sa nazivom kluba pronađenog po kodu"></div>
-        <div class="cap"><span class="num">1</span><div><p>Otvorite "Registruj se", unesite kod koji ste dobili od kluba i dodirnite "Dalje". Pojavi se naziv kluba — provjerite da je pravi.</p></div></div>
+        <div class="shot"><img src="../img/uputstva/roditelj-01-kod-kluba.webp" loading="lazy" alt="Ekran Registracija sa upisanim kodom kluba i dugmetom Dalje"></div>
+        <div class="cap"><span class="num">1</span><div><p>Otvorite aplikaciju i dodirnite „Nemate nalog? Upišite se“. Upišite kod kluba i dodirnite „Dalje“.</p><p class="note">Kod dobijete od trenera ili od kluba.</p></div></div>
       </article>
       <article class="step">
-        <div class="shot"><img src="../img/uputstva/roditelj-02-obrazac-popunjen.webp" loading="lazy" alt="Popunjen obrazac: prvo dijete, pa podaci roditelja"></div>
-        <div class="cap"><span class="num">2</span><div><p>Prvo upišite dijete, sa datumom rođenja, a ispod svoje podatke kao roditelj. Više djece dodajete preko "Još jedno dijete". U klubu za odrasle upisujete sebe.</p></div></div>
+        <div class="shot"><img src="../img/uputstva/roditelj-02-dijete.webp" loading="lazy" alt="Obrazac sa nazivom kluba i podacima djeteta: ime, prezime i datum rođenja"></div>
+        <div class="cap"><span class="num">2</span><div><p>Pojavi se naziv kluba, pa provjerite da je pravi. Upišite dijete: ime, prezime i datum rođenja.</p><p class="note">Drugo dijete dodajete preko „Još jedno dijete“. U klubu za odrasle upisujete sebe.</p></div></div>
       </article>
       <article class="step">
-        <div class="shot"><img src="../img/uputstva/roditelj-02b-pregled.webp" loading="lazy" alt="Pregled prije slanja: klub, dijete i roditelj"></div>
-        <div class="cap"><span class="num">3</span><div><p>Prije slanja aplikacija pokaže koga upisujete. Ako nešto nije kako treba, dodirnite "Ispravi".</p></div></div>
+        <div class="shot"><img src="../img/uputstva/roditelj-03-roditelj.webp" loading="lazy" alt="Podaci roditelja: ime, prezime, email, telefon i lozinka"></div>
+        <div class="cap"><span class="num">3</span><div><p>Ispod upišite svoje podatke i izaberite lozinku. Sa tom adresom i lozinkom se poslije prijavljujete.</p></div></div>
       </article>
       <article class="step">
-        <div class="shot"><img src="../img/uputstva/roditelj-03-na-cekanju.webp" loading="lazy" alt="Prijava za dijete čeka odobrenje kluba"></div>
-        <div class="cap"><span class="num">4</span><div><p>Prijava čeka odobrenje kluba. Obavještenje stiže čim je admin pregleda.</p></div></div>
+        <div class="shot"><img src="../img/uputstva/roditelj-04-pregled.webp" loading="lazy" alt="Prozor Provjerite prije slanja sa klubom, djetetom i roditeljem"></div>
+        <div class="cap"><span class="num">4</span><div><p>Prije slanja provjerite koga upisujete. Ako nešto nije kako treba, dodirnite „Ispravi“.</p></div></div>
       </article>
       <article class="step">
-        <div class="shot"><img src="../img/uputstva/roditelj-03b-odbijeno.webp" loading="lazy" alt="Odbijena prijava sa razlogom i dugme Upiši dijete"></div>
-        <div class="cap"><span class="num">5</span><div><p>Ako klub odbije prijavu, vidite razlog. Nalog vam ostaje i dijete možete odmah upisati ponovo.</p></div></div>
+        <div class="shot"><img src="../img/uputstva/roditelj-05-na-cekanju.webp" loading="lazy" alt="Početna sa porukom da prijava čeka odobrenje kluba"></div>
+        <div class="cap"><span class="num">5</span><div><p>Prijava čeka odobrenje kluba. Kad je klub prihvati, dobićete obavještenje.</p><p class="note">Na email vam stiže poruka. Otvorite je da potvrdite adresu.</p></div></div>
       </article>
       <article class="step">
-        <div class="shot"><img src="../img/uputstva/roditelj-04-pocetna.webp" loading="lazy" alt="Početna stranica sa statusom članarine i istorijom uplata"></div>
-        <div class="cap"><span class="num">6</span><div><p>Nakon odobrenja: status članarine, istorija uplata, i prebacivanje između djece ako ih ima više.</p></div></div>
-      </article>
-      <article class="step">
-        <div class="shot"><img src="../img/uputstva/roditelj-05-raspored.webp" loading="lazy" alt="Raspored sa dugmadima Dolazim i Ne dolazim"></div>
-        <div class="cap"><span class="num">7</span><div><p>U rasporedu potvrdite ili otkažite dolazak na trening ili utakmicu.</p></div></div>
-      </article>
-      <article class="step">
-        <div class="shot"><img src="../img/uputstva/roditelj-06-statistika.webp" loading="lazy" alt="Statistika prisustva sa procentom i brojem treninga"></div>
-        <div class="cap"><span class="num">8</span><div><p>Statistika prisustva pokazuje koliko je treninga odrađeno.</p></div></div>
+        <div class="shot"><img src="../img/uputstva/roditelj-06-odbijeno.webp" loading="lazy" alt="Odbijena prijava sa razlogom i dugmetom Upiši dijete"></div>
+        <div class="cap"><span class="num">6</span><div><p>Ako klub odbije prijavu, vidite razlog. Nalog vam ostaje i dijete možete odmah upisati ponovo.</p></div></div>
       </article>
     </div>
   </section>
 
-  <section class="role wrap" id="trener">
+  <section class="role wrap" id="clanarina">
     <div class="head">
-      <span class="kicker">Za trenere</span>
-      <h2>Prisustvo i obavještenja za svoju grupu</h2>
-      <p>Trener vidi samo svoje grupe — članove, raspored i prisustvo. Sve se vodi iz telefona, na samom treningu.</p>
+      <span class="kicker">Za roditelje i članove</span>
+      <h2>Članarina: šta je plaćeno, a šta nije</h2>
+      <p>Klub upisuje svaku uplatu, a aplikacija vam za svako dijete pokazuje stanje.</p>
     </div>
     <div class="steps">
       <article class="step">
-        <div class="shot"><img src="../img/uputstva/trener-01-pocetna.webp" loading="lazy" alt="Početna stranica trenera sa brojem članova i prihodom grupe"></div>
-        <div class="cap"><span class="num">1</span><div><p>Početna pokazuje vaše grupe: ko kasni s uplatom, ko čeka odobrenje.</p></div></div>
+        <div class="shot"><img src="../img/uputstva/roditelj-07-pocetna.webp" loading="lazy" alt="Početna sa djecom: jedno ima plaćenu članarinu, drugo duguje oktobar"></div>
+        <div class="cap"><span class="num">1</span><div><p>Na početnoj za svako dijete piše da li je članarina plaćena. Zeleni mjesec je plaćen, a crveni nije.</p><p class="note">Kako se plaća piše odmah ispod. To određuje klub.</p></div></div>
       </article>
       <article class="step">
-        <div class="shot"><img src="../img/uputstva/trener-02-prisustvo-prazno.webp" loading="lazy" alt="Spisak članova na treningu, svi bez odgovora"></div>
-        <div class="cap"><span class="num">2</span><div><p>Otvorite trening iz rasporeda da vidite spisak za evidenciju.</p></div></div>
+        <div class="shot"><img src="../img/uputstva/roditelj-08-uplate.webp" loading="lazy" alt="Historija uplata sa datumom i iznosom"></div>
+        <div class="cap"><span class="num">2</span><div><p>Pod „Uplate“ je svaka uplata koju je klub upisao, sa datumom i iznosom.</p></div></div>
       </article>
-      <article class="step">
-        <div class="shot"><img src="../img/uputstva/trener-03-prisustvo-popunjeno.webp" loading="lazy" alt="Dio članova označeno kao prisutno"></div>
-        <div class="cap"><span class="num">3</span><div><p>Dodirnite člana i označite prisutan, odsutan ili bez odgovora.</p></div></div>
-      </article>
-      <article class="step">
-        <div class="shot"><img src="../img/uputstva/trener-04-grupa-clanovi.webp" loading="lazy" alt="Spisak članova grupe sa statusom članarine"></div>
-        <div class="cap"><span class="num">4</span><div><p>Pregled grupe pokazuje status članarine svakog člana.</p></div></div>
-      </article>
-      <article class="step">
-        <div class="shot"><img src="../img/uputstva/trener-05-obavjestenje.webp" loading="lazy" alt="Obrazac za slanje obavještenja grupi"></div>
-        <div class="cap"><span class="num">5</span><div><p>Pošaljite obavještenje cijeloj grupi — npr. da je trening pomjeren.</p></div></div>
-      </article>
-      <article class="step">
-        <div class="shot"><img src="../img/uputstva/trener-06-novac.webp" loading="lazy" alt="Kartica Novac od članova na početnoj trenera, sa iznosom koji treba predati administratoru"></div>
-        <div class="cap"><span class="num">6</span><div><p>Dijete vam je donijelo novac? Na početnoj otvorite "Novac od članova" i dodirnite "Zabilježi novac". Novac predajte administratoru — računa se tek kad ga on potvrdi.</p></div></div>
-      </article>
+    </div>
+    <div class="callout">
+      <h3>Članarinu ne plaćate u aplikaciji</h3>
+      <p>Plaćate je klubu, kako klub kaže: treneru ili na račun. Klub uplatu upiše, a vama stigne obavještenje.</p>
     </div>
   </section>
 
-  <section class="role wrap" id="administrator">
+  <section class="role wrap" id="raspored">
     <div class="head">
-      <span class="kicker">Za administratore</span>
-      <h2>Cijeli klub na jednom mjestu</h2>
-      <p>Admin vidi sve članove, grupe, uplate, finansije i raspored, i odobrava nove prijave prije nego uđu u evidenciju.</p>
+      <span class="kicker">Za roditelje i članove</span>
+      <h2>Raspored i prisustvo</h2>
+      <p>Treninzi i utakmice su u rasporedu, sa danom, satom i mjestom.</p>
     </div>
     <div class="steps">
       <article class="step">
-        <div class="shot"><img src="../img/uputstva/admin-01-pocetna.webp" loading="lazy" alt="Početna stranica admina sa pregledom kluba i prihodom"></div>
-        <div class="cap"><span class="num">1</span><div><p>Početna pokazuje cijeli klub: broj članova, zakašnjele uplate, prihod.</p></div></div>
+        <div class="shot"><img src="../img/uputstva/roditelj-09-raspored.webp" loading="lazy" alt="Raspored treninga sa dugmadima Dolazi i Ne dolazi za svako dijete"></div>
+        <div class="cap"><span class="num">1</span><div><p>Za svaki trening javite „Dolazi“ ili „Ne dolazi“. Trener odmah vidi ko dolazi.</p><p class="note">Ako imate više djece, svako ima svoj red.</p></div></div>
       </article>
       <article class="step">
-        <div class="shot"><img src="../img/uputstva/admin-02-zahtjevi.webp" loading="lazy" alt="Zahtjev za registraciju sa podacima roditelja i djeteta"></div>
-        <div class="cap"><span class="num">2</span><div><p>Nove prijave čekaju ovdje, sa podacima roditelja i djeteta.</p></div></div>
+        <div class="shot"><img src="../img/uputstva/roditelj-10-prisustvo.webp" loading="lazy" alt="Prisustvo djeteta u procentima i broj treninga"></div>
+        <div class="cap"><span class="num">2</span><div><p>Pod „Prisustvo“ na početnoj vidite koliko je treninga dijete odradilo.</p></div></div>
+      </article>
+    </div>
+    <div class="callout">
+      <h3>Dozvolite obavještenja</h3>
+      <p>Kad klub zakaže ili otkaže trening, prihvati prijavu ili upiše uplatu, stigne obavještenje na telefon. Kad vas aplikacija pita, dodirnite „Dozvoli“.</p>
+    </div>
+  </section>
+
+  <section class="role wrap" id="klubovi">
+    <div class="head">
+      <span class="kicker">Za klubove</span>
+      <h2>Cijeli klub u jednoj aplikaciji</h2>
+      <p>Admin na početnoj vidi ko kasni sa članarinom i koliko, ko čeka odobrenje i koliko je novca kod trenera. Trener vidi samo svoje grupe i na treningu označi prisustvo u par dodira.</p>
+    </div>
+    <div class="steps">
+      <article class="step">
+        <div class="shot"><img src="../img/uputstva/klub-01-pocetna.webp" loading="lazy" alt="Početna admina: prijave, članovi koji kasne, novac kod trenera i članarine za mjesec"></div>
+        <div class="cap"><div><p>Početna admina</p><p class="note">Šta traži pažnju i koliko je članova platilo ovaj mjesec.</p></div></div>
       </article>
       <article class="step">
-        <div class="shot"><img src="../img/uputstva/admin-03-odobri-dijalog.webp" loading="lazy" alt="Dijalog za odobravanje sa izborom grupe i plana članarine"></div>
-        <div class="cap"><span class="num">3</span><div><p>Pri odobravanju odmah dodajete u grupu i postavljate plan članarine — ili to ostavite za kasnije.</p></div></div>
+        <div class="shot"><img src="../img/uputstva/klub-02-prisustvo.webp" loading="lazy" alt="Prisustvo na treningu sa dugmadima Tu i Nije za svakog člana"></div>
+        <div class="cap"><div><p>Prisustvo na treningu</p><p class="note">„Svi su tu“ jednim dodirom, pa samo oni koji nisu došli.</p></div></div>
       </article>
-      <article class="step">
-        <div class="shot"><img src="../img/uputstva/admin-04-odobreno.webp" loading="lazy" alt="Potvrda da je član primljen u klub"></div>
-        <div class="cap"><span class="num">4</span><div><p>Član je u klubu — roditelj odmah dobija obavještenje.</p></div></div>
-      </article>
-      <article class="step">
-        <div class="shot"><img src="../img/uputstva/admin-03b-odbij-dijalog.webp" loading="lazy" alt="Dijalog za odbijanje prijave sa izborom razloga"></div>
-        <div class="cap"><span class="num">5</span><div><p>Prijavu koja nije u redu odbijte i odaberite razlog, npr. ako je roditelj upisao sebe umjesto djeteta. Roditelj vidi razlog i može ispraviti prijavu.</p></div></div>
-      </article>
-      <article class="step">
-        <div class="shot"><img src="../img/uputstva/admin-05-clanovi.webp" loading="lazy" alt="Spisak svih članova kluba sa statusom uplate"></div>
-        <div class="cap"><span class="num">6</span><div><p>Spisak svih članova, sa statusom uplate obojenim po boji.</p></div></div>
-      </article>
-      <article class="step">
-        <div class="shot"><img src="../img/uputstva/admin-06-uplata-dijalog.webp" loading="lazy" alt="Obrazac za brzu uplatu sa iznosom i metodom plaćanja"></div>
-        <div class="cap"><span class="num">7</span><div><p>Evidentirajte uplatu u par dodira — iznos se sam predloži iz plana.</p></div></div>
-      </article>
-      <article class="step">
-        <div class="shot"><img src="../img/uputstva/admin-07-uplata-potvrdjena.webp" loading="lazy" alt="Potvrda uplate i ažuriran prihod kluba"></div>
-        <div class="cap"><span class="num">8</span><div><p>Prihod i status člana se ažuriraju odmah.</p></div></div>
-      </article>
-      <article class="step">
-        <div class="shot"><img src="../img/uputstva/admin-08-nova-aktivnost.webp" loading="lazy" alt="Obrazac za novu aktivnost: grupa, naslov, tip, datum i vrijeme"></div>
-        <div class="cap"><span class="num">9</span><div><p>Zakažite trening ili utakmicu — svi u grupi vide isti raspored.</p></div></div>
-      </article>
-      <article class="step">
-        <div class="shot"><img src="../img/uputstva/admin-10-finansije.webp" loading="lazy" alt="Finansije za mjesec: prihodi, troškovi i da li je klub u plusu"></div>
-        <div class="cap"><span class="num">10</span><div><p>U Finansijama se članarine upisuju same, iz uplata. Ostale prihode i troškove dodajete dugmetom "Dodaj prihod ili trošak" i za svaki mjesec vidite da li je klub u plusu.</p></div></div>
-      </article>
-      <article class="step">
-        <div class="shot"><img src="../img/uputstva/admin-11-prikupljanje.webp" loading="lazy" alt="Prikupljanje za ligu: koliko je prikupljeno i ko još duguje"></div>
-        <div class="cap"><span class="num">11</span><div><p>Novac za ligu, turnir ili opremu vodite u Prikupljanjima, ne kao članarinu. Vidi se ko je platio, a ko duguje, a uplatu upišete dugmetom "Uplata".</p></div></div>
-      </article>
-      <article class="step">
-        <div class="shot"><img src="../img/uputstva/admin-12-novac-kod-trenera.webp" loading="lazy" alt="Novac kod trenera sa dugmadima Potvrdi i Odbij"></div>
-        <div class="cap"><span class="num">12</span><div><p>Novac koji je trener primio čeka vašu potvrdu. Potvrdite ga kad vam ga preda — tek tada se računa.</p></div></div>
-      </article>
-      <article class="step">
-        <div class="shot"><img src="../img/uputstva/admin-13-ko-prima.webp" loading="lazy" alt="Ko prima obavještenja: koliko članova prima i zašto ostali ne primaju"></div>
-        <div class="cap"><span class="num">13</span><div><p>Preko zvonca otvorite "Ko prima obavještenja": vidite kome poruke ne stižu i zašto, npr. nema aplikaciju ili ju je obrisao.</p></div></div>
-      </article>
+    </div>
+    <div class="head contact">
+      <p>Detaljno uputstvo za admine i trenere šaljemo klubu kad počne koristiti eKlub.</p>
+      <div class="club-actions">
+        <a class="button blue" href="mailto:info@eklub.ba?subject=eKlub%20za%20na%C5%A1%20klub">Pišite nam</a>
+        <span>info@eklub.ba</span>
+      </div>
     </div>
   </section>
 
