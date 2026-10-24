@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>eKlub — vođenje sportskog kluba</title>
-<meta name="description" content="Članstvo, treninzi, uplate i obavještenja — cijeli sportski klub u telefonu. Za klubove koje vodi nekoliko ljudi uz svoj posao.">
+<meta name="description" content="Članovi, članarine, treninzi, prisustvo i finansije — cijeli sportski klub u telefonu. Za klubove koje vodi nekoliko ljudi uz svoj posao.">
 <meta name="theme-color" content="#1b63b8">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://eklub.ba/">
 <meta property="og:title" content="eKlub — vođenje sportskog kluba">
-<meta property="og:description" content="Članstvo, treninzi, uplate i obavještenja — cijeli sportski klub u telefonu.">
+<meta property="og:description" content="Članovi, članarine, treninzi, prisustvo i finansije — cijeli sportski klub u telefonu.">
 <meta property="og:image" content="https://eklub.ba/img/og.png">
 <meta property="og:locale" content="bs_BA">
 <style>
@@ -156,6 +156,16 @@
   .privacy li strong { font-weight: 600; }
   .privacy .more { margin-top: 28px; }
 
+  /* ---- how a club starts ---- */
+  .start { background: var(--surface); border-block: 1px solid var(--line); padding-block: clamp(64px, 9vw, 112px); }
+  .start ol { list-style: none; padding: 0; margin: 44px 0 0; display: grid; grid-template-columns: repeat(4, 1fr);
+              gap: 32px; counter-reset: step; }
+  .start li { counter-increment: step; border-top: 4px solid var(--blue); padding-top: 18px; }
+  .start li::before { content: counter(step); display: block; font: 700 2.6rem/1 var(--display); color: var(--blue);
+                      margin-bottom: 12px; }
+  .start li strong { display: block; font: 600 1.45rem/1.1 var(--display); }
+  .start li span { display: block; margin-top: 10px; color: var(--muted); }
+
   /* ---- closing call ---- */
   .closing { background: var(--blue-deep); color: #fff; padding-block: clamp(64px, 9vw, 104px); }
   .closing p { margin-top: 18px; color: rgba(255,255,255,.88); }
@@ -175,6 +185,10 @@
     .feature:nth-child(even) .phone { order: 0; }
     .feature .phone { width: min(72%, 260px); }
     .role-list { grid-template-columns: 1fr; gap: 28px; }
+    .start ol { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 520px) {
+    .start ol { grid-template-columns: 1fr; gap: 28px; }
   }
 </style>
 </head>
@@ -193,18 +207,18 @@
         <span class="old"><s>WhatsApp grupa.</s></span>
         <span class="new">Cijeli klub u&nbsp;jednoj aplikaciji.</span>
       </h1>
-      <p>Članovi, treninzi, članarine i obavještenja na jednom mjestu. Za klubove koje vodi nekoliko ljudi uz svoj posao, bez administracije i bez IT službe.</p>
+      <p>Članovi, članarine, treninzi, prisustvo i finansije na jednom mjestu. Za klubove koje vodi nekoliko ljudi uz svoj posao, bez administracije i bez IT službe.</p>
       <div class="actions">
         <a class="button" href="mailto:info@eklub.ba?subject=eKlub%20za%20na%C5%A1%20klub&amp;body=Naziv%20kluba%3A%0D%0AGrad%3A%0D%0ASport%3A%0D%0APribli%C5%BEan%20broj%20%C4%8Dlanova%3A%0D%0ATelefon%3A%0D%0A">Pošaljite nam mail</a>
         <span>info@eklub.ba</span>
       </div>
-      <p class="get-app">Vaš klub već koristi eKlub? Preuzmite aplikaciju:</p>
+      <p class="get-app">Vaš klub već koristi eKlub? Preuzmite aplikaciju i <a href="/uputstva/">pogledajte kako se upisati</a>:</p>
       <div class="stores">
         <a href="https://apps.apple.com/ba/app/id6807553297"><img src="img/app-store.svg" alt="Preuzmite eKlub na App Storeu" width="165" height="52"></a>
         <a href="https://play.google.com/store/apps/details?id=ba.eklub.app"><img src="img/google-play.png" alt="Nabavite eKlub na Google Playu" width="181" height="52"></a>
       </div>
     </div>
-    <div class="phone"><img src="img/1-pocetna.webp" width="600" height="1210" alt="Početna stranica aplikacije: 12 članova, 2 kasne s uplatom, prihod 360 BAM ovog mjeseca"></div>
+    <div class="phone"><img src="img/pocetna-admin.webp" width="600" height="1259" alt="Početna aplikacije za admina: dvije prijave čekaju, sedam članova kasni sa članarinom, 12 od 19 članova je platilo oktobar"></div>
   </div>
 </header>
 
@@ -213,49 +227,56 @@
     <div class="feature">
       <div>
         <h2>Ko je platio, a ko kasni</h2>
-        <p>Svaki član ima svoju članarinu i ciklus naplate. Pored imena piše da li je uplata stigla, a početna stranica odmah kaže koliko članova kasni.</p>
+        <p>Pored svakog člana piše „Plaćeno do 31.10.“ ili koliko duguje i za koje mjesece. Početna kaže koliko članova kasni i koliko novca fali, a aplikacija može sama podsjetiti one koji kasne.</p>
       </div>
-      <div class="phone"><img src="img/2-clanovi.webp" width="600" height="1210" loading="lazy" alt="Spisak članova sa oznakama Aktivna i Kasni"></div>
+      <div class="phone"><img src="img/clanovi.webp" width="600" height="1259" loading="lazy" alt="Spisak članova: kod svakog piše plaćeno do kada ili koliko duguje, a pored dužnika je dugme Uplata"></div>
+    </div>
+    <div class="feature">
+      <div>
+        <h2>Roditelji upisuju djecu sami</h2>
+        <p>Klub roditeljima pošalje svoj kod. Roditelj u aplikaciji upiše dijete i svoje podatke, a vi prijavu prihvatite jednim dodirom. Spiskove više niko ne prepisuje.</p>
+      </div>
+      <div class="phone"><img src="img/upis.webp" width="600" height="1259" loading="lazy" alt="Obrazac za upis: naziv kluba, podaci djeteta i podaci roditelja"></div>
     </div>
     <div class="feature">
       <div>
         <h2>Raspored treninga i utakmica</h2>
-        <p>Treninzi po grupama, sa vremenom i mjestom. Članovi i roditelji vide svoj raspored u aplikaciji, pa ga više niko ne prepisuje u grupu.</p>
+        <p>Treninzi po grupama, sa vremenom i mjestom, i zajednički treninzi za više grupa. Roditelji u aplikaciji jave da li dijete dolazi, a o svakoj promjeni dobiju obavještenje.</p>
       </div>
-      <div class="phone"><img src="img/3-raspored.webp" width="600" height="1210" loading="lazy" alt="Sedmični raspored treninga za grupe Pioniri, Kadeti i Juniori"></div>
+      <div class="phone"><img src="img/raspored.webp" width="600" height="1259" loading="lazy" alt="Raspored roditelja: za svako dijete dugmad Dolazi i Ne dolazi"></div>
     </div>
     <div class="feature">
       <div>
         <h2>Prisustvo u dva dodira</h2>
-        <p>Trener otvori trening i označi ko je došao. Iz toga se sama vodi statistika dolazaka za svakog člana.</p>
+        <p>Trener otvori trening, dodirne „Svi su tu“ i označi samo one kojih nema. Statistika dolazaka se vodi sama, za svakog člana.</p>
       </div>
-      <div class="phone"><img src="img/4-prisustvo.webp" width="600" height="1210" loading="lazy" alt="Evidencija prisustva na treningu: 4 prisutna, 0 odsutnih"></div>
+      <div class="phone"><img src="img/prisustvo.webp" width="600" height="1259" loading="lazy" alt="Prisustvo na treningu: dugme Svi su tu i za svakog člana Tu ili Nije"></div>
     </div>
     <div class="feature">
       <div>
-        <h2>Prihod po mjesecu i po grupi</h2>
-        <p>Uplata se evidentira sa načinom plaćanja. Pregled pokazuje koliko je klub prihodovao i koliko je članova u svakoj grupi uplatilo.</p>
+        <h2>Finansije kluba</h2>
+        <p>Članarine se upisuju same, iz uplata. Dodate salu, savez i donacije, pa za svaki mjesec vidite da li je klub u plusu. Novac za turnir ili opremu vodi se posebno, a novac koji trener primi računa se tek kad ga admin potvrdi.</p>
       </div>
-      <div class="phone"><img src="img/5-uplate.webp" width="600" height="1210" loading="lazy" alt="Pregled uplata: ukupni prihod, gotovina, kartica i prihod po grupi"></div>
+      <div class="phone"><img src="img/finansije.webp" width="600" height="1259" loading="lazy" alt="Finansije za oktobar: klub je u plusu 560 KM, sa prihodima i troškovima"></div>
     </div>
   </section>
 
   <section class="roles">
     <div class="wrap">
       <h2>Svako vidi ono što mu treba</h2>
-      <p>Obavještenje stiže na telefon i kad aplikacija nije otvorena, cijelom klubu ili samo jednoj grupi.</p>
+      <p>Obavještenje stiže na telefon i kad aplikacija nije otvorena, cijelom klubu ili samo jednoj grupi. Admin vidi i kome poruke ne stižu, i zašto.</p>
       <dl class="role-list">
         <div>
           <dt>Administrator</dt>
-          <dd>Vidi cijeli klub: članove, grupe, trenere, uplate i prisustvo. Odobrava nove prijave prije nego uđu u evidenciju.</dd>
+          <dd>Vidi cijeli klub: članove, grupe, trenere, uplate, prisustvo i finansije. Prihvata nove prijave prije nego uđu u evidenciju.</dd>
         </div>
         <div>
           <dt>Trener</dt>
-          <dd>Vidi samo svoje grupe. Vodi prisustvo i šalje obavještenja svojim članovima.</dd>
+          <dd>Vidi samo svoje grupe. Vodi prisustvo, šalje obavještenja svojim članovima i bilježi novac koji primi.</dd>
         </div>
         <div>
           <dt>Roditelj i član</dt>
-          <dd>Roditelj ima svoj nalog i vidi podatke svoje djece: treninge, prisustvo i uplate. Ništa o drugim članovima kluba.</dd>
+          <dd>Upisuje se sam, kodom kluba. Vidi podatke svoje djece: treninge, prisustvo i uplate. Ništa o drugim članovima kluba.</dd>
         </div>
       </dl>
     </div>
@@ -271,6 +292,18 @@
     <p class="more"><a href="https://api.eklub.ba/privacy">Pročitajte politiku privatnosti</a></p>
   </section>
 
+  <section class="start">
+    <div class="wrap">
+      <h2>Kako vaš klub počinje</h2>
+      <ol>
+        <li><strong>Pišite nam</strong><span>Recite nam ko ste, koji sport i koliko članova imate.</span></li>
+        <li><strong>Otvorimo vaš klub</strong><span>Admin dobija pozivnicu na email i sam postavi lozinku.</span></li>
+        <li><strong>Postavite klub</strong><span>Grupe, treneri i članarine. Šaljemo vam uputstvo korak po korak.</span></li>
+        <li><strong>Roditelji se upišu sami</strong><span>Pošaljete im kod kluba, a prijave prihvatite u aplikaciji.</span></li>
+      </ol>
+    </div>
+  </section>
+
   <section class="closing">
     <div class="wrap">
       <h2>Vodite klub?</h2>
@@ -279,7 +312,7 @@
         <a class="button" href="mailto:info@eklub.ba?subject=eKlub%20za%20na%C5%A1%20klub&amp;body=Naziv%20kluba%3A%0D%0AGrad%3A%0D%0ASport%3A%0D%0APribli%C5%BEan%20broj%20%C4%8Dlanova%3A%0D%0ATelefon%3A%0D%0A">Pošaljite nam mail</a>
         <span>info@eklub.ba</span>
       </div>
-      <p class="note">Članovi i roditelji preuzimaju aplikaciju ovdje:</p>
+      <p class="note">Članovi i roditelji preuzimaju aplikaciju ovdje, a <a href="/uputstva/">uputstvo za upis</a> je na našoj stranici:</p>
       <div class="stores">
         <a href="https://apps.apple.com/ba/app/id6807553297"><img src="img/app-store.svg" alt="Preuzmite eKlub na App Storeu" width="165" height="52"></a>
         <a href="https://play.google.com/store/apps/details?id=ba.eklub.app"><img src="img/google-play.png" alt="Nabavite eKlub na Google Playu" width="181" height="52"></a>
