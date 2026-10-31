@@ -171,6 +171,24 @@
   .closing p { margin-top: 18px; color: rgba(255,255,255,.88); }
   .closing .actions { margin-top: 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
   .closing .note { margin-top: 28px; font-size: 1rem; color: rgba(255,255,255,.7); }
+  .closing .note a { color: #fff; }
+
+  /* ---- club inquiry form: posts to the backend as a plain form, no script ---- */
+  .inquiry { margin-top: 32px; max-width: 760px; background: var(--surface); color: var(--ink);
+             border-radius: 14px; padding: clamp(20px, 4vw, 32px); display: grid;
+             grid-template-columns: 1fr 1fr; gap: 18px 20px; }
+  .inquiry .full { grid-column: 1 / -1; }
+  .inquiry label { display: block; font-weight: 600; font-size: 1rem; margin-bottom: 6px; }
+  .inquiry input, .inquiry select, .inquiry textarea {
+             width: 100%; box-sizing: border-box; min-height: 48px; padding: 11px 14px;
+             font: 400 1.0625rem/1.3 var(--text); color: var(--ink); background: var(--paper);
+             border: 1px solid var(--line); border-radius: 10px; }
+  .inquiry textarea { min-height: 104px; resize: vertical; }
+  .inquiry input:focus, .inquiry select:focus, .inquiry textarea:focus { outline: 2px solid var(--blue); outline-offset: 1px; }
+  .closing .inquiry p { margin: 0; font-size: 1rem; color: var(--muted); }
+  .inquiry p a { color: var(--blue); }
+  .inquiry .button { border: 0; cursor: pointer; }
+  .inquiry .trap { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
 
   footer { padding-block: 32px; font-size: 1rem; color: var(--muted); }
   footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 32px; }
@@ -190,6 +208,9 @@
   @media (max-width: 520px) {
     .start ol { grid-template-columns: 1fr; gap: 28px; }
   }
+  @media (max-width: 640px) {
+    .inquiry { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
@@ -197,7 +218,7 @@
 <header class="hero">
   <div class="wrap bar">
     <a class="brand" href="/"><img src="img/logo.png" alt="" width="44" height="44">eKlub</a>
-    <a class="contact" href="mailto:info@eklub.ba?subject=eKlub%20za%20na%C5%A1%20klub">Javite se</a>
+    <a class="contact" href="#prijava">Javite se</a>
   </div>
   <div class="wrap hero-grid">
     <div class="hero-copy">
@@ -209,8 +230,8 @@
       </h1>
       <p>Članovi, članarine, treninzi, prisustvo i finansije na jednom mjestu. Za klubove koje vodi nekoliko ljudi uz svoj posao, bez administracije i bez IT službe.</p>
       <div class="actions">
-        <a class="button" href="mailto:info@eklub.ba?subject=eKlub%20za%20na%C5%A1%20klub&amp;body=Naziv%20kluba%3A%0D%0AGrad%3A%0D%0ASport%3A%0D%0APribli%C5%BEan%20broj%20%C4%8Dlanova%3A%0D%0ATelefon%3A%0D%0A">Pošaljite nam mail</a>
-        <span>info@eklub.ba</span>
+        <a class="button" href="#prijava">Prijavite svoj klub</a>
+        <span>ili pišite na info@eklub.ba</span>
       </div>
       <p class="get-app">Vaš klub već koristi eKlub? Preuzmite aplikaciju i <a href="/uputstva/">pogledajte kako se upisati</a>:</p>
       <div class="stores">
@@ -304,14 +325,66 @@
     </div>
   </section>
 
-  <section class="closing">
+  <section class="closing" id="prijava">
     <div class="wrap">
       <h2>Vodite klub?</h2>
-      <p>Pišite nam ko ste i koliko članova imate. Javićemo se i dogovoriti kako da vaš klub počne.</p>
-      <div class="actions">
-        <a class="button" href="mailto:info@eklub.ba?subject=eKlub%20za%20na%C5%A1%20klub&amp;body=Naziv%20kluba%3A%0D%0AGrad%3A%0D%0ASport%3A%0D%0APribli%C5%BEan%20broj%20%C4%8Dlanova%3A%0D%0ATelefon%3A%0D%0A">Pošaljite nam mail</a>
-        <span>info@eklub.ba</span>
-      </div>
+      <p>Ostavite kontakt i javit ćemo vam se u roku od dva radna dana. Pokažemo vam aplikaciju, a vaš spisak članova iz Excela prebacimo mi.</p>
+      <form class="inquiry" method="post" action="https://api.eklub.ba/prijava-kluba">
+        <div><label for="q-name">Ime i prezime</label>
+          <input id="q-name" name="name" autocomplete="name" maxlength="100" required></div>
+        <div><label for="q-role">Vaša uloga u klubu</label>
+          <input id="q-role" name="role" maxlength="60" placeholder="npr. predsjednik, trener"></div>
+        <div><label for="q-club">Naziv kluba</label>
+          <input id="q-club" name="club" maxlength="150" required></div>
+        <div><label for="q-sport">Sport</label>
+          <select id="q-sport" name="sport">
+            <option value="">Odaberite sport</option>
+            <option>Fudbal</option>
+            <option>Futsal</option>
+            <option>Rukomet</option>
+            <option>Košarka</option>
+            <option>Odbojka</option>
+            <option>Vaterpolo</option>
+            <option>Hokej</option>
+            <option>Karate</option>
+            <option>Judo</option>
+            <option>Taekwondo</option>
+            <option>Kickbox</option>
+            <option>Boks</option>
+            <option>Hrvanje</option>
+            <option>Plivanje</option>
+            <option>Atletika</option>
+            <option>Gimnastika</option>
+            <option>Ples</option>
+            <option>Tenis</option>
+            <option>Stoni tenis</option>
+            <option>Šah</option>
+            <option>Ostalo</option>
+          </select></div>
+        <div><label for="q-city">Grad</label>
+          <input id="q-city" name="city" maxlength="80"></div>
+        <div><label for="q-size">Približan broj članova</label>
+          <select id="q-size" name="size">
+            <option value="">Odaberite</option>
+            <option>do 50</option>
+            <option>50 do 100</option>
+            <option>100 do 200</option>
+            <option>200 do 300</option>
+            <option>preko 300</option>
+          </select></div>
+        <div><label for="q-phone">Telefon</label>
+          <input id="q-phone" name="phone" type="tel" autocomplete="tel" maxlength="40"></div>
+        <div><label for="q-email">Email</label>
+          <input id="q-email" name="email" type="email" autocomplete="email" maxlength="254"></div>
+        <p class="full">Dovoljno je jedno od dva: telefon ili email.</p>
+        <div class="full"><label for="q-note">Napomena</label>
+          <textarea id="q-note" name="note" maxlength="1000"></textarea></div>
+        <div class="trap" aria-hidden="true"><label for="q-web">Ne popunjavati</label>
+          <input id="q-web" name="website" tabindex="-1" autocomplete="off"></div>
+        <div class="full"><button class="button" type="submit">Pošalji prijavu</button></div>
+        <p class="full">Podatke iz prijave koristimo samo da vam se javimo i čuvamo ih najviše 12 mjeseci. <a href="https://api.eklub.ba/privacy">Politika privatnosti</a></p>
+      </form>
+      <p class="note">Radije mailom? Pišite na <a href="mailto:info@eklub.ba?subject=eKlub%20za%20na%C5%A1%20klub&amp;body=Naziv%20kluba%3A%0D%0AGrad%3A%0D%0ASport%3A%0D%0APribli%C5%BEan%20broj%20%C4%8Dlanova%3A%0D%0ATelefon%3A%0D%0A">info@eklub.ba</a>.</p>
       <p class="note">Članovi i roditelji preuzimaju aplikaciju ovdje, a <a href="/uputstva/">uputstvo za upis</a> je na našoj stranici:</p>
       <div class="stores">
         <a href="https://apps.apple.com/ba/app/id6807553297"><img src="img/app-store.svg" alt="Preuzmite eKlub na App Storeu" width="165" height="52"></a>
