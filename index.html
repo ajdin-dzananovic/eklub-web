@@ -114,6 +114,7 @@
   .hero-copy p { margin-top: 28px; font-size: 1.25rem; color: rgba(255,255,255,.9); }
   .hero-copy .actions { margin-top: 36px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
   .hero-copy .actions span { color: rgba(255,255,255,.8); }
+  .hero-copy .actions span a { color: #fff; }
 
   /* ---- store badges: Apple's own artwork, never redrawn or recoloured ---- */
   .get-app { margin-top: 32px; font-size: 1rem; color: rgba(255,255,255,.8); }
@@ -190,6 +191,13 @@
   .inquiry .button { border: 0; cursor: pointer; }
   .inquiry .trap { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
 
+  /* ---- phone, Viber, WhatsApp: for those who would rather write or call than fill in a form ---- */
+  .quick { margin-top: 32px; }
+  .quick-links { display: flex; flex-wrap: wrap; gap: 10px 12px; margin-top: 14px; }
+  .chip { display: inline-flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 10px;
+          border: 1.5px solid rgba(255,255,255,.55); color: #fff; text-decoration: none; font-weight: 600; }
+  .chip:hover { background: rgba(255,255,255,.12); }
+
   footer { padding-block: 32px; font-size: 1rem; color: var(--muted); }
   footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 32px; }
   footer nav { display: flex; flex-wrap: wrap; gap: 8px 24px; }
@@ -231,7 +239,7 @@
       <p>Članovi, članarine, treninzi, prisustvo i finansije na jednom mjestu. Za klubove koje vodi nekoliko ljudi uz svoj posao, bez administracije i bez IT službe.</p>
       <div class="actions">
         <a class="button" href="#prijava">Prijavite svoj klub</a>
-        <span>ili pišite na info@eklub.ba</span>
+        <span>ili nazovite <a href="tel:+38762237966">062&nbsp;237&nbsp;966</a></span>
       </div>
       <p class="get-app">Vaš klub već koristi eKlub? Preuzmite aplikaciju i <a href="/uputstva/">pogledajte kako se upisati</a>:</p>
       <div class="stores">
@@ -384,7 +392,15 @@
         <div class="full"><button class="button" type="submit">Pošalji prijavu</button></div>
         <p class="full">Podatke iz prijave koristimo samo da vam se javimo i čuvamo ih najviše 12 mjeseci. <a href="https://api.eklub.ba/privacy">Politika privatnosti</a></p>
       </form>
-      <p class="note">Radije mailom? Pišite na <a href="mailto:info@eklub.ba?subject=eKlub%20za%20na%C5%A1%20klub&amp;body=Naziv%20kluba%3A%0D%0AGrad%3A%0D%0ASport%3A%0D%0APribli%C5%BEan%20broj%20%C4%8Dlanova%3A%0D%0ATelefon%3A%0D%0A">info@eklub.ba</a>.</p>
+      <div class="quick">
+        <p>Radije porukom ili pozivom? Broj je <b>062&nbsp;237&nbsp;966</b>.</p>
+        <div class="quick-links">
+          <a class="chip" href="viber://chat?number=%2B38762237966">Pišite na Viber</a>
+          <a class="chip" href="https://wa.me/38762237966?text=Pozdrav%2C%20zanima%20me%20eKlub%20za%20na%C5%A1%20klub.">Pišite na WhatsApp</a>
+          <a class="chip" href="tel:+38762237966">Nazovite</a>
+        </div>
+        <p class="note">Ili mailom na <a href="mailto:info@eklub.ba?subject=eKlub%20za%20na%C5%A1%20klub&amp;body=Naziv%20kluba%3A%0D%0AGrad%3A%0D%0ASport%3A%0D%0APribli%C5%BEan%20broj%20%C4%8Dlanova%3A%0D%0ATelefon%3A%0D%0A">info@eklub.ba</a>.</p>
+      </div>
       <p class="note">Članovi i roditelji preuzimaju aplikaciju ovdje, a <a href="/uputstva/">uputstvo za upis</a> je na našoj stranici:</p>
       <div class="stores">
         <a href="https://apps.apple.com/ba/app/id6807553297"><img src="img/app-store.svg" alt="Preuzmite eKlub na App Storeu" width="165" height="52"></a>
@@ -401,6 +417,7 @@
       <a href="/uputstva/">Uputstva</a>
       <a href="https://api.eklub.ba/privacy">Politika privatnosti</a>
       <a href="https://api.eklub.ba/delete-account">Brisanje naloga</a>
+      <a href="tel:+38762237966">062&nbsp;237&nbsp;966</a>
       <a href="mailto:info@eklub.ba">info@eklub.ba</a>
     </nav>
     <p class="note">Napomena: eKlub je u postupku registracije djelatnosti. Do njenog završetka korištenje je besplatno i naknada se ne naplaćuje. O početku naplate klubove obavještavamo najmanje 30 dana unaprijed.</p>
